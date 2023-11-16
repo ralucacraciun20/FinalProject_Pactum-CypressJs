@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npx mocha tests --timeout=10000",
+    "test": "npx mocha tests_api --timeout=10000",
     "test:html": "npx mocha tests --reporter mochawesome --reporter-options reportDir=results,reportFilename=report --timeout=10000"
 
 

@@ -2,8 +2,8 @@ const { spec, request } = require("pactum");
 const { faker } = require("@faker-js/faker");
 
 const userName = faker.internet.userName();
+const randomEmail = faker.internet.email();
 const randomPassword = faker.internet.password();
-//const randomEmail = faker.internet.email();
 const baseUrl = "https://practice.expandtesting.com/notes/api/";
 
 describe("POST register user ", () => {
@@ -11,16 +11,26 @@ describe("POST register user ", () => {
     request.setDefaultTimeout(10000);
   });
 
-  it("Post register users - fail scenario", async () => {
+  it("Post register users - valid scenario", async () => {
     const requestBody = {
       name: userName,
-      email: "santino.rogahn85@hotmail.com",
+      email: randomEmail,
       password: randomPassword,
     };
     await spec()
       .post(baseUrl + "users/register")
       .withBody(requestBody)
-      //.inspect()
-      .expectStatus(409);
+      .expectStatus(201);
+    it("Post register users - fail scenario", async () => {
+      const requestBody = {
+        name: userName,
+        email: "santino.rogahn85@hotmail.com",
+        password: randomPassword,
+      };
+      await spec()
+        .post(baseUrl + "users/register")
+        .withBody(requestBody)
+        .expectStatus(409);
+    });
   });
 });

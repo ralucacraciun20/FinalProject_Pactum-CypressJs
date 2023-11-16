@@ -20,16 +20,11 @@ describe("delete notes", () => {
     authToken = response.body.data.token;
   });
 
-  //   it('Unauth user', async () => {
-  //     await spec().get('https://practice.expandtesting.com/notes/api/users/profile')
-  //     .expectStatus(401);
-  // });
-
   it("Delete notes by id ", async () => {
     await spec()
       .delete(baseUrl + "notes/" + "6555f88654df310141aead75")
       .withHeaders("x-auth-token", authToken)
-      .inspect()
+
       .expectStatus(404);
   });
 });
