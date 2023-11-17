@@ -3,7 +3,6 @@
 import { faker } from "@faker-js/faker";
 
 const Password = "TestRauca";
-//const loginName = faker.string.alpha({ length: { min: 5, max: 64 } });
 
 describe("Register new user", () => {
   it("Create account", () => {

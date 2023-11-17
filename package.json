@@ -8,15 +8,15 @@
   },
   "scripts": {
     "test": "npx mocha tests_api --timeout=10000",
-    "test:html": "npx mocha tests --reporter mochawesome --reporter-options reportDir=results,reportFilename=report --timeout=10000"
-
-
-
+    "test:html": "npx mocha tests --reporter mochawesome --reporter-options reportDir=results,reportFilename=report --timeout=10000",
+    "cy:open": "npx cypress open",
+    "cy:chrome": " npx cypress run --browser chrome"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
+    "cypress": "^13.5.1",
     "mocha": "^10.2.0",
     "pactum": "^3.5.1"
   },
